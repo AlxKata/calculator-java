@@ -12,6 +12,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String sc = scanner.nextLine();
         String cleanInput = sc.replaceAll(" ", "");
+        Methods.operationQuantity(cleanInput);
 
         if (cleanInput.contains("I") || cleanInput.contains("V") || cleanInput.contains("X")) {
             flagRoman = true;
@@ -59,7 +60,7 @@ public class Main {
             System.out.println(summ);
         } else if (flagRoman == true) {
             summ = Methods.checkRoman(cleanInput);
-            System.out.println(summ);
+            Methods.intToRoman(summ);
         }
     }
 }

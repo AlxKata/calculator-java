@@ -89,7 +89,7 @@ public class Methods {
             }
         }
 
-        if (sumRoman < 0) {
+        if (sumRoman < 1) {
             try {
                 throw new IOException();
             } catch (IOException e) {
@@ -100,5 +100,54 @@ public class Methods {
 
 
         return sumRoman;
+    }
+
+    public static void operationQuantity (String exmp) {
+        int quantity = 0;
+        char[] symbolQuantity = exmp.toCharArray();
+        for (int i = 0; i < exmp.length(); i++) {
+            if (symbolQuantity[i] == '+' || symbolQuantity[i] == '-' || symbolQuantity[i] == '/' || symbolQuantity[i] == '*') {
+                quantity += 1;
+            }
+        }
+
+        if (quantity > 1) {
+            try {
+                throw new IOException();
+            } catch (IOException e) {
+                System.out.println("Количество арифметических операций > 1");
+                System.exit(1);
+            }
+        }
+    }
+
+    public static void intToRoman (int exmp) {
+        while (exmp > 0) {
+            if (exmp == 100) {
+                System.out.print("C");
+                exmp -= 100;
+            } else if (exmp < 100 && exmp >= 50) {
+                System.out.print("L");
+                exmp -= 50;
+            } else if (exmp < 50 && exmp >= 10) {
+                System.out.print("X");
+                exmp -= 10;
+            } else if (exmp == 9) {
+                System.out.print("IX");
+                exmp -= 9;
+            } else if (exmp < 9 && exmp >= 5) {
+                System.out.print("V");
+                exmp -= 5;
+            } else if (exmp == 4) {
+                System.out.print("IV");
+                exmp -= 4;
+            } else if (exmp < 4 && exmp > 1) {
+                System.out.print("I");
+                exmp -= 1;
+            } else if (exmp == 1) {
+                System.out.print("I");
+                exmp -= 1;
+            }
+        }
     }
 }
